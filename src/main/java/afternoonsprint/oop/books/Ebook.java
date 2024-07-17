@@ -1,16 +1,18 @@
 package afternoonsprint.oop.books;
 
 
-enum FileType {
-    XML,
-    CSV,
-    JSON
-}
+import java.util.ArrayList;
 
 public class Ebook extends Book {
-    FileType fileType;
+
+    private FileType fileType;
+
+    public void setFileType(FileType fileType) {
+        this.fileType = fileType;
+    }
 
     public Ebook(String title, String[] pages) {
         super(title, pages);
     }
+
 }

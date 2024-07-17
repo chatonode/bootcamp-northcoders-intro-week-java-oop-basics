@@ -1,6 +1,6 @@
 package afternoonsprint.oop.library;
 
-import afternoonsprint.oop.books.Book;
+import afternoonsprint.oop.books.*;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -26,5 +26,46 @@ public class Library {
 
     }
 
+    public ArrayList<Book> getBooks() {
+        return this.books;
+    }
+
+    public ArrayList<Ebook> getEbooks() {
+        ArrayList<Ebook> eBookList = new ArrayList<>();
+        for (Book book : this.books) {
+            if (book instanceof Ebook) {
+                eBookList.add((Ebook) book);
+            }
+        }
+
+        return eBookList;
+    }
+
+    public ArrayList<GraphicNovel> getGraphicNovels() {
+        ArrayList<GraphicNovel> graphicNovelList = new ArrayList<>();
+        for (Book book : this.books) {
+            if (book instanceof GraphicNovel) {
+                graphicNovelList.add((GraphicNovel) book);
+            }
+        }
+
+        return graphicNovelList;
+    }
+
+    public ArrayList<SheetMusic> getSheetMusic() {
+        ArrayList<SheetMusic> musicSheetList = new ArrayList<>();
+        for (Book book : this.books) {
+            if (book instanceof SheetMusic) {
+                musicSheetList.add((SheetMusic) book);
+            }
+        }
+
+        return musicSheetList;
+    }
+
+    public void transformIntoEBook(Book bookToTransform) {
+        Ebook newEBook = (Ebook) bookToTransform;
+        newEBook.setFileType(FileType.PDF);
+    }
 
 }
